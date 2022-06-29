@@ -23,7 +23,7 @@ export class Pupils {
           );
       }
     } else {
-      throw new Error("Error: Invalid phones input");
+      throw new Error("Error: Invalid phone input");
     }
     if (typeof data.sex !== "string") {
       throw new Error("Error: The pupil's sex should be a string");
