@@ -109,3 +109,8 @@ console.log(groupreadalready);
 
 let groupreadallalready = groups.readAll(groupId);
 console.log(groupreadallalready);
+
+const gradebooks = new Gradebooks(groups, teachers, lms);
+
+const gradebookadd = gradebooks.add(groupId);
+console.log(gradebookadd);
