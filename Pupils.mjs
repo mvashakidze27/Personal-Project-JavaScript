@@ -1,20 +1,34 @@
-// Pupil's Schema
-{
-    "name": {
-      "first": "string",
-      "last": "string"
-    },
-    "dateOfBirth": "string", // format date
-    "phones": [
-      {
-        "phone": "string",
-        "primary": "boolean"
-      }
-    ],
-    "sex": "string", // male OR female
-    "description": "string"
+export class Pupils {
+  constructor() {
+    this.db = new Map();
+    this.counter = 0;
   }
-  // all fields are required, except description
+  validate(data) {
+    if (typeof data.name.first !== "string") {
+      throw new Error("Error: The pupil's first name should be a string");
+    }
+    if (typeof data.name.last !== "string") {
+      throw new Error("Error: The pupil's last name should be a string");
+    }
+    if (typeof data.dateOfBirth !== "string") {
+      throw new Error("Error: The pupil's date of birth should be a string");
+    }
+    if (typeof data.phones.phone !== "string") {
+      throw new Error("Error: The pupil's phones should be string");
+    }
+    if (typeof data.phones.primary !== "boolean") {
+      throw new Error("Error: The pupil's primary phone should be a boolean");
+    }
+    if (typeof data.sex !== "string") {
+      throw new Error("Error: The pupil's sex should be a string");
+    }
+    if (
+      typeof data.description !== "string" &&
+      typeof data.description !== "undefined"
+    ) {
+      throw new Error("Error: The pupil's description should be a string");
+    }
+}
   
   // Create new Pupil from Pupil's data
   const pupils = new Pupils();
