@@ -97,3 +97,15 @@ console.log(pupreadalready);
 
 let pupilsremovedalready = pupils.remove(pupilid);
 console.log(pupilsremovedalready);
+
+const room = 236;
+const groups = new Groups();
+
+const groupId = groups.add(room);
+console.log(groupId);
+
+let groupreadalready = groups.read(groupId);
+console.log(groupreadalready);
+
+let groupreadallalready = groups.readAll(groupId);
+console.log(groupreadallalready);
