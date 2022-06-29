@@ -1,6 +1,8 @@
 import { LMS } from "./LMS.mjs";
 import { Teachers } from "./Teachers.mjs";
 import { Pupils } from "./Pupils.mjs";
+import { Groups } from "./Groups.mjs";
+import { Gradebooks } from "./Gradebooks.mjs";
 
 const lms = new LMS();
 const history = {
@@ -22,39 +24,82 @@ let alreadyread = lms.readAll();
 console.log(alreadyread);
 
 const teachers = new Teachers();
-const data = {
+const teachdata = {
   name: {
     first: "Annie",
     last: "Smith",
   },
   dateOfBirth: "7, 7, 1970",
-  emails: {
-    email: "annie@yahoo.com",
-    primary: "anniesmith@gmail.com",
-  },
-  phones: {
-    phone: "595343434",
-    primary: "555333444",
-  },
+  emails: [
+    {
+      email: "annie@yahoo.com",
+      primary: false,
+    },
+    {
+      email: "annie@gmail.com",
+      primary: true,
+    },
+  ],
+  phones: [
+    {
+      phone: "595343434",
+      primary: true,
+    },
+    {
+      phone: "567895623",
+      primary: false,
+    },
+  ],
   sex: "female",
-  subjects: {
-    subject1: "Linguistics-101",
-    subject2: "Linguistics-102",
-    subject3: "Linguistics-103",
-  },
+  subjects: [
+    { subject: "Linguistics-101" },
+    { subject: "Linguistics-102" },
+    { subject: "Linguistics-103" },
+  ],
   description: "the scientific study of language",
 };
 
-let teacherId = teachers.add(data);
-console.log(teacherID);
+let teacherId = teachers.add(teachdata);
+console.log(teacherId);
 
 let readalready = teachers.read(teacherId);
 console.log(readalready);
 
-let teachersId = teachers.update(teachersId, updatedProfile);
+let teachersId = teachers.update(teacherId, readalready);
 console.log(teachersId);
 
 let removedalready = teachers.remove(teacherId);
 console.log(removedalready);
 
+const pupils = new Pupils();
+const pupildata = {
+  name: {
+    first: "Daniel",
+    last: "Brown",
+  },
+  dateOfBirth: "5, 5, 2000",
+  phones: [
+    {
+      phone: "533333333",
+      primary: false,
+    },
+    {
+      phone: "577777777",
+      primary: true,
+    },
+  ],
+  sex: "male",
+  description: "motivated student",
+};
 
+let pupil = pupils.add(pupildata);
+console.log(pupil);
+
+let pupreadalready = pupils.read(pupil.id);
+console.log(pupreadalready);
+
+let pupilsupdate = pupils.update(pupil.id, pupreadalready);
+console.log(pupilsupdate);
+
+let pupilsremovedalready = pupils.remove(pupil.id);
+console.log(pupilsremovedalready);

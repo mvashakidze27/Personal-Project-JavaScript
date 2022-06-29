@@ -13,11 +13,17 @@ export class Pupils {
     if (typeof data.dateOfBirth !== "string") {
       throw new Error("Error: The pupil's date of birth should be a string");
     }
-    if (typeof data.phones.phone !== "string") {
-      throw new Error("Error: The pupil's phones should be string");
-    }
-    if (typeof data.phones.primary !== "boolean") {
-      throw new Error("Error: The pupil's primary phone should be a boolean");
+    if (data.phones) {
+      for (var i = 0; i < data.phones.length; i++) {
+        if (typeof data.phones[i].phone !== "string")
+          throw new Error("Error: The pupil's phones should be string");
+        if (typeof data.phones[i].primary !== "boolean")
+          throw new Error(
+            "Error: The pupil's primary phone should be a boolean"
+          );
+      }
+    } else {
+      throw new Error("Error: Invalid phones input");
     }
     if (typeof data.sex !== "string") {
       throw new Error("Error: The pupil's sex should be a string");
@@ -28,21 +34,24 @@ export class Pupils {
     ) {
       throw new Error("Error: The pupil's description should be a string");
     }
+  }
+  add(data) {
+    this.validate(data);
+    let pupil = data;
+    let id = this.counter.toString();
+    pupil.id = id;
+    this.db.set(id, pupil);
+    this.counter++;
+    return pupil.id;
+  }
+  read(pupilid) {
+    return this.db.get(pupilid);
+  }
+  update(pupilid, data) {
+    this.validate(data);
+    this.db.set(pupilid, data);
+  }
+  remove(pupilid) {
+    return this.db.delete(pupilid);
+  }
 }
-  
-  // Create new Pupil from Pupil's data
-  const pupils = new Pupils();
-  
-  // Create a new pupil
-  const pupil = pupils.add(data);
-  
-  pupil.id // should return pupil ID
-  
-  // will return Pupils data including pupil's id
-  pupils.read(pupil.id)
-  
-  // will update Pupil. This method should use the same validation as a add method
-  pupils.update(pupil.id, updatedProfile)
-  
-  // will remove pupil
-  pupils.remove(pupil.id)
