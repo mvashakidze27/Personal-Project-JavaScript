@@ -65,9 +65,6 @@ console.log(teacherId);
 let readalready = teachers.read(teacherId);
 console.log(readalready);
 
-let teachersId = teachers.update(teacherId, readalready);
-console.log(teachersId);
-
 let removedalready = teachers.remove(teacherId);
 console.log(removedalready);
 
@@ -92,14 +89,11 @@ const pupildata = {
   description: "motivated student",
 };
 
-let pupil = pupils.add(pupildata);
-console.log(pupil);
+let pupilid = pupils.add(pupildata);
+console.log(pupilid);
 
-let pupreadalready = pupils.read(pupil.id);
+let pupreadalready = pupils.read(pupilid);
 console.log(pupreadalready);
 
-let pupilsupdate = pupils.update(pupil.id, pupreadalready);
-console.log(pupilsupdate);
-
-let pupilsremovedalready = pupils.remove(pupil.id);
+let pupilsremovedalready = pupils.remove(pupilid);
 console.log(pupilsremovedalready);
