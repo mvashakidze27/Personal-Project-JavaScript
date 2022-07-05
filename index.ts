@@ -1,8 +1,8 @@
 import { LMS } from "./LMS.js";
-import { Teachers } from "./Teachers.js";
-import { Pupils } from "./Pupils.js";
-import { Groups } from "./Groups.js";
-import { Gradebooks } from "./Gradebooks.js";
+import { Teachers } from "./teachers.js";
+import { Pupils } from "./pupils.js";
+import { Groups } from "./groups.js";
+import { Gradebooks } from "./gradebooks.js";
 
 const lms = new LMS();
 const history = {

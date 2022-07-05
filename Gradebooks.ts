@@ -100,7 +100,7 @@ class Gradebooks {
             name: pupilName.first, pupilName.last,
             records: [
                 {teacher: {teacherName.first} {teacherName.last},
-                 subject: teacherSubject.subject[0].subject,
+                subject: teacherSubject.subject[0].subject,
                  lesson: lesson,
                  mark: mark,
                  } 
