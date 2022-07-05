@@ -19,7 +19,7 @@ var Teachers = /** @class */ (function () {
         if (obj.dateOfBirth) {
             var date_Regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
             if (!date_Regex.test(obj.dateOfBirth)) {
-                throw 'The format of the date is not valid';
+                throw "The format of the date is not valid";
             }
         }
     };
@@ -35,7 +35,7 @@ var Teachers = /** @class */ (function () {
                 console.log(this.teachers[i]);
             }
             else {
-                throw 'The ID of a teacher wasn not found';
+                throw "The ID of a teacher wasn not found";
             }
         }
     };
@@ -47,7 +47,7 @@ var Teachers = /** @class */ (function () {
                 return updatedProfile.teacherId;
             }
             else {
-                throw 'The ID of a teacher wasn not found';
+                throw "The ID of a teacher wasn not found";
             }
         }
     };
@@ -57,7 +57,7 @@ var Teachers = /** @class */ (function () {
                 this.teachers.splice(i, 1);
             }
             else {
-                throw 'The ID of a teacher wasn not found';
+                throw "The ID of a teacher wasn not found";
             }
         }
     };
